@@ -1,0 +1,18 @@
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/payments_db
+    username: postgres
+    password: postgres
+
+  sql:
+    init:
+      mode: always  # executa o schema.sql automaticamente
+
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+    org.springframework.r2dbc: DEBUG
+    com.empresa.payments: DEBUG

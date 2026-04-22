@@ -20,6 +20,6 @@ class TransactionRepositoryAdapter(
     override fun findAll(): Flow<Transaction> =
         r2dbc.findAll()
 
-    override fun findByPayment(paymentId: UUID): Flow<Transaction> =
+    override fun findByPaymentId(paymentId: UUID): Flow<Transaction> =
         r2dbc.findByPaymentId(paymentId)
 }

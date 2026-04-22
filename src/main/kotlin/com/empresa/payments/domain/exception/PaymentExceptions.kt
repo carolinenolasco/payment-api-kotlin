@@ -10,5 +10,5 @@ class InvalidPaymentStatusException(
     current: PaymentStatus,
     required: PaymentStatus
 ) : RuntimeException(
-    "Status inválido: $current. Status necessario: $required"
+    "Status inválido: $current. Status necessário: $required"
 )

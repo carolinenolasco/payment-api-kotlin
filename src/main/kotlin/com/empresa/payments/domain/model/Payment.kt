@@ -9,20 +9,19 @@ import java.math.BigDecimal
 import java.time.LocalDateTime
 import java.util.UUID
 
-@Table("payment")
+@Table("payments")
 data class Payment(
     @Id
-    val id: UUID = UUID.randomUUID(),
-
+    val id: UUID? = null,
     val amount: BigDecimal,
     val currency: String,
 
     var status: PaymentStatus = PaymentStatus.PENDING,
-
     val method: String,
     val timestamp: LocalDateTime = LocalDateTime.now(),
+
     val details: String? = null,
 
     @Transient
-    val transactions: List<PulsarProperties.Transaction> = emptyList(),
+    val transactions: List<Transaction> = emptyList()
 )

@@ -9,5 +9,5 @@ interface TransactionRepositoryPort {
     suspend fun save(transaction: Transaction): Transaction
     suspend fun findById(id: UUID): Transaction?
     fun findAll(): Flow<Transaction>
-    fun findByPayment(paymentId: UUID): Flow<Transaction>
+    fun findByPaymentId(paymentId: UUID): Flow<Transaction>
 }

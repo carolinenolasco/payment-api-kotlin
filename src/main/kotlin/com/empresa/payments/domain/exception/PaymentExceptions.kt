@@ -6,6 +6,9 @@ import java.util.UUID
 class PaymentNotFoundException(id: UUID) :
     RuntimeException("Pagamento não encontrado com ID: $id")
 
+class TransactionNotFoundException(id: UUID) :
+    RuntimeException("Transação não encontrada com ID: $id")
+
 class InvalidPaymentStatusException(
     current: PaymentStatus,
     required: PaymentStatus

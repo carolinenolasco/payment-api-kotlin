@@ -3,7 +3,7 @@ package com.empresa.payments.domain.model
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
-import java.math.BigDecimal          // ✅ este import precisa estar aqui
+import java.math.BigDecimal
 import java.time.LocalDateTime
 import java.util.UUID
 
@@ -16,8 +16,10 @@ data class Transaction(
     val timestamp: LocalDateTime = LocalDateTime.now(),
     val status: String = "SUCCESS",
 
+    // Detalhes extras em JSON (ex: código de autorização)
     val details: String? = null,
 
+    // FK — referencia o Payment dono desta transação
     @Column("payment_id")
     val paymentId: UUID
 )

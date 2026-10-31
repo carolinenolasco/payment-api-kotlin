@@ -38,3 +38,14 @@ out/
 
 ### Kotlin ###
 .kotlin
+
+### Logs ###
+*.log
+
+### Variáveis de ambiente (NUNCA versionar senhas!) ###
+.env
+application-local.yml
+
+### OS ###
+.DS_Store
+Thumbs.db

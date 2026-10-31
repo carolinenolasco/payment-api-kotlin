@@ -1,6 +1,5 @@
 package com.empresa.payments.domain.port.out
 
-import com.empresa.payments.domain.model.Payment
 import com.empresa.payments.domain.model.Transaction
 import kotlinx.coroutines.flow.Flow
 import java.util.UUID

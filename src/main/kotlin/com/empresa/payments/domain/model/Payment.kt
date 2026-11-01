@@ -1,6 +1,7 @@
 package com.empresa.payments.domain.model
 
 import org.springframework.data.annotation.Id
+import org.springframework.data.annotation.PersistenceCreator
 import org.springframework.data.annotation.Transient
 import org.springframework.data.relational.core.mapping.Table
 import java.math.BigDecimal
@@ -26,4 +27,17 @@ data class Payment(
     // @Transient = NÃO é coluna do banco. Carregado separado pelo service.
     @Transient
     val transactions: List<Transaction> = emptyList()
-)
+) {
+    // Construtor usado pelo Spring Data ao LER do banco: só tem as colunas reais.
+    // Sem ele, o Spring tenta preencher "transactions", que não é coluna, e falha.
+    @PersistenceCreator
+    constructor(
+        id: UUID?,
+        amount: BigDecimal,
+        currency: String,
+        status: PaymentStatus,
+        method: String,
+        timestamp: LocalDateTime,
+        details: String?
+    ) : this(id, amount, currency, status, method, timestamp, details, emptyList())
+}

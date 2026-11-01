@@ -26,6 +26,7 @@ docker-compose up -d
 ```
 
 A API sobe em `http://localhost:8080`.
+O PostgreSQL do `docker-compose` usa a porta **5433** no seu computador (e não a 5432), para não conflitar com um Postgres já instalado.
 
 ## Endpoints
 
@@ -75,7 +76,7 @@ curl http://localhost:8080/payment/{ID}
 
 - `PaymentServiceImplTest` — regras de negócio (MockK, sem banco).
 - `PaymentControllerTest` — camada HTTP com `@WebFluxTest` + `WebTestClient` (sem banco).
-- `PaymentsApplicationTests` — sobe o contexto completo; **precisa do PostgreSQL no ar** (`docker-compose up -d`).
+- `PaymentFlowIntegrationTest` — fluxo completo com PostgreSQL real via Testcontainers; **precisa do Docker rodando**, mas não do `docker-compose`.
 
 ## Estrutura
 

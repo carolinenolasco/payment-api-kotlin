@@ -33,6 +33,8 @@ dependencies {
 	testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test")
 	testImplementation("io.mockk:mockk:1.13.10")
 	testImplementation("com.ninja-squad:springmockk:4.0.2")
+	testImplementation("org.testcontainers:junit-jupiter")
+	testImplementation("org.testcontainers:postgresql")
 }
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
